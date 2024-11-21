@@ -1,7 +1,7 @@
-import Skeleton from "@/components/skeleton"
+
 import SkeletonCard from "@/components/skeleton-card"
 
-const loading = () => {
+const Loading = () => {
   return (
     <div className="flex flex-wrap max-w-[1100px] mx-auto px-[20px] py-24 gap-20 justify-center
     +">
@@ -14,4 +14,4 @@ const loading = () => {
   )
 }
 
-export default loading
+export default Loading
