@@ -11,6 +11,10 @@ type Props = {
   };
 };
 
+type EventsPageProps = Props & {
+  searchParams : {[key : string] : string | string[] | undefined}
+}
+
 //Bitegrad function is not working
 // export async function generateMetaData({ params }: Props) {
 //   const city = (await params).city;
@@ -29,8 +33,9 @@ export async function generateMetadata(
   }
 }
 
-const EventsPage = async ({ params }: Props) => {
+const EventsPage = async ({ params, searchParams }: EventsPageProps) => {
   const city = params.city;
+  const page = searchParams.page || 1;
 
   return (
     <main className="flex flex-col items-center py-24 px-[20px] min-h-[110vh]">
@@ -39,7 +44,7 @@ const EventsPage = async ({ params }: Props) => {
         {city !== "all" && `Events in ${capatilize(city)}`}
       </H1>
       <Suspense fallback={<Loading />}>
-        <EventsList city={city} />
+        <EventsList city={city} page={+page} />
       </Suspense>
     </main>
   );
