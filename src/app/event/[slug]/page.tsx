@@ -1,5 +1,7 @@
+import 'server-only'
+
 import H1 from "@/components/h1";
-import { capatilize, getEvent } from "@/lib/utils";
+import {  getEvent } from "@/lib/server-utils";
 import { Metadata } from "next";
 import Image from "next/image";
 
@@ -19,7 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export async function generateStaticParams() {
   // top 100 most popular events
-  return [
+  return [ 
     {
       slug:'comedy-extravaganza'
     },
